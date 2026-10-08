@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of Rhian Jay Tampe — First year BSIT student at USTP CDO." />
+  <title>Rhian Jay Tampe | BSIT Student</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <nav class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="#hero" class="logo">&lt;RJ /&gt;</a>
+
+      <ul class="nav__links" id="nav-links">
+        <li><a href="#about" class="nav__link">About</a></li>
+        <li><a href="#funfact" class="nav__link">Fun Facts</a></li>
+        <li><a href="#projects" class="nav__link">Projects</a></li>
+        <li><a href="#contact" class="nav__link">Contact</a></li>
+        <li><a href="#contact" class="btn btn--primary btn--sm nav__cta">Hire Me</a></li>
+      </ul>
+
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <header class="hero" id="hero">
+    <div class="blob blob--1"></div>
+    <div class="blob blob--2"></div>
+    <div class="container hero__inner">
+      <p class="hero__hello">👋 Hello, I'm</p>
+      <h1 class="hero__name">Rhian Jay Tampe</h1>
+      <p class="hero__role">
+        <span class="hero__type" id="typewriter"></span><span class="cursor">|</span>
+      </p>
+      <p class="hero__subtitle">
+        A passionate first-year BSIT student at USTP CDO, learning to turn ideas into
+        clean, responsive web experiences — one line of code at a time.
+      </p>
+
+      <div class="hero__actions">
+        <a href="#projects" class="btn btn--primary">View My Work</a>
+        <a href="#contact" class="btn btn--ghost">Contact Me</a>
+      </div>
+
+      <div class="hero__socials">
+        <a href="https://github.com/Rjay-netizen" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.75 2.69 1.25 3.34.95.1-.74.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.35.77 1.05.77 2.12 0 1.53-.01 2.76-.01 3.14 0 .31.2.67.8.56A11.52 11.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.55V9h3.57v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.72C24 .77 23.2 0 22.22 0Z"/></svg>
+        </a>
+        <a href="https://x.com/" target="_blank" rel="noopener" aria-label="Twitter / X">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.24 2.25h3.31l-7.23 8.26L22.83 21.75h-6.66l-5.22-6.82-5.97 6.82H1.66l7.73-8.84L1.25 2.25h6.83l4.72 6.24 5.44-6.24Zm-1.16 17.52h1.83L7.08 4.13H5.12l11.96 15.64Z"/></svg>
+        </a>
+        <a href="mailto:tamperhian@gmail.com" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M1.5 4.5h21v15h-21v-15Zm10.5 8.44L3.42 6.08v11.84h17.16V6.08L12 12.94Zm0-2.51 8.08-5.93H3.92L12 10.43Z"/></svg>
+        </a>
+      </div>
+
+      <a href="#about" class="scroll-hint" aria-label="Scroll down">
+        <span></span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="section" id="about">
+    <div class="container">
+      <p class="section__tag">01 · About</p>
+      <h2 class="section__title">A little about me</h2>
+
+      <div class="about">
+        <div class="about__photo reveal" aria-hidden="true">
+          <span>RJ</span>
+        </div>
+
+        <div class="about__content reveal">
+          <p>
+            Hi! I'm <strong>Rhian Jay Tampe</strong> — a first-year <strong>BSIT</strong>
+            student at <strong>USTP CDO</strong>. I'm just starting out, but I already love
+            building things for the web and figuring out how they work.
+          </p>
+          <p>
+            I'm currently learning the fundamentals — HTML, CSS, and JavaScript — and I
+            take every project as a chance to get a little better. This portfolio is one of
+            those projects! 😄
+          </p>
+
+          <ul class="about__facts">
+            <li><span>📍</span> Cagayan de Oro City, PH</li>
+            <li><span>🎓</span> BSIT Student @ USTP CDO</li>
+            <li><span>⚙️</span> HTML · CSS · JavaScript</li>
+            <li><span>🌱</span> First year, eager to grow</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ===== FUN FACT ===== -->
+      <div class="funfact reveal" id="funfact">
+        <div class="funfact__emoji" id="funfact-emoji" aria-hidden="true">🤯</div>
+        <p class="funfact__fact" id="funfact-text">Fun fact #1 tap to shuffle...</p>
+        <button class="btn btn--ghost btn--sm" id="funfact-btn">🎲 New Fun Fact</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS ===== -->
+  <section class="section section--alt" id="projects">
+    <div class="container">
+      <p class="section__tag">02 · Projects</p>
+      <h2 class="section__title">Things I've built</h2>
+
+      <div class="projects">
+        <article class="card reveal">
+          <div class="card__preview preview--1">
+            <span>Project One</span>
+          </div>
+          <div class="card__body">
+            <h3>Project One</h3>
+            <p>A short description of your first project — what it does and why it's cool.</p>
+            <div class="card__tags">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span>
+            </div>
+            <div class="card__links">
+              <a href="#" target="_blank" rel="noopener">Live Demo ↗</a>
+              <a href="#" target="_blank" rel="noopener">Source ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card__preview preview--2">
+            <span>Project Two</span>
+          </div>
+          <div class="card__body">
+            <h3>Project Two</h3>
+            <p>A short description of your second project — a fun challenge you solved.</p>
+            <div class="card__tags">
+              <span>JavaScript</span><span>API</span><span>CSS</span>
+            </div>
+            <div class="card__links">
+              <a href="#" target="_blank" rel="noopener">Live Demo ↗</a>
+              <a href="#" target="_blank" rel="noopener">Source ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card__preview preview--3">
+            <span>Project Three</span>
+          </div>
+          <div class="card__body">
+            <h3>Project Three</h3>
+            <p>A short description of your third project — the one you're most proud of.</p>
+            <div class="card__tags">
+              <span>HTML</span><span>CSS</span><span>JS</span>
+            </div>
+            <div class="card__links">
+              <a href="#" target="_blank" rel="noopener">Live Demo ↗</a>
+              <a href="#" target="_blank" rel="noopener">Source ↗</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="section" id="contact">
+    <div class="container">
+      <p class="section__tag">03 · Contact</p>
+      <h2 class="section__title">Let's work together</h2>
+
+      <div class="contact">
+        <div class="contact__info reveal">
+          <p>
+            Have a project idea, a question about coding, or just want to say hi?
+            My inbox is always open!
+          </p>
+          <ul>
+            <li>
+              📧
+              <a href="mailto:tamperhian@gmail.com">tamperhian@gmail.com</a>
+            </li>
+            <li>
+              📞
+              <a href="tel:09350360267">0935 036 0267</a>
+            </li>
+            <li>📍 Cagayan de Oro City, Philippines</li>
+            <li>
+              🌐
+              <a href="https://github.com/Rjay-netizen" target="_blank" rel="noopener">github.com/Rjay-netizen</a>
+            </li>
+          </ul>
+        </div>
+
+        <form class="contact__form reveal" id="contact-form">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Jane Doe" required />
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="jane@example.com" required />
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+
+          <button type="submit" class="btn btn--primary">Send Message ✦</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="year">2026</span> Rhian Jay Tampe. Built with coffee ☕ and HTML/CSS/JS.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

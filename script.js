@@ -141,3 +141,142 @@ form.addEventListener("submit", (e) => {
 
 /* ---------- Auto-update footer year ---------- */
 document.getElementById("year").textContent = new Date().getFullYear();
+
+/* ============================================================
+   GALAXY BACKGROUND — twinkling starfield + shooting stars
+   ============================================================ */
+(function galaxy() {
+  const canvas = document.getElementById("galaxy");
+  const flavorHost = document.getElementById("code-flakes");
+  if (!canvas || typeof window.matchMedia === "undefined") return;
+
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const ctx = canvas.getContext("2d");
+  const COLORS = ["#ffffff", "#cdd6ff", "#ffe9c9", "#9ee7ff"];
+
+  let stars = [];
+  let shooting = [];
+  let W, H;
+
+  function resize() {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+    buildStars();
+  }
+
+  function buildStars() {
+    const count = Math.min(320, Math.floor((W * H) / 5500));
+    stars = [];
+    for (let i = 0; i < count; i++) {
+      stars.push({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        r: Math.random() * 1.3 + 0.2,
+        phase: Math.random() * Math.PI * 2,
+        speed: 0.4 + Math.random() * 1.6,
+        depth: 0.25 + Math.random() * 0.75, // brightness factor
+        color: COLORS[Math.floor(Math.random() * COLORS.length)],
+      });
+    }
+  }
+
+  function spawnShootingStar() {
+    shooting.push({
+      x: Math.random() * W * 0.6 + W * 0.2,
+      y: Math.random() * H * 0.25,
+      vx: -(4 + Math.random() * 4),
+      vy: 2.5 + Math.random() * 2.5,
+      life: 1,
+    });
+  }
+
+  let lastShot = 0;
+  function tick(time) {
+    ctx.clearRect(0, 0, W, H);
+
+    // Stars (twinkle)
+    const t = time * 0.001;
+    for (const s of stars) {
+      const twinkle = 0.5 + 0.5 * Math.sin(t * s.speed + s.phase);
+      ctx.globalAlpha = s.depth * twinkle;
+      ctx.fillStyle = s.color;
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+
+    // Shooting stars
+    if (time - lastShot > 3500 + Math.random() * 3500) {
+      lastShot = time;
+      spawnShootingStar();
+    }
+    shooting = shooting.filter((s) => s.life > 0);
+    for (const s of shooting) {
+      s.x += s.vx;
+      s.y += s.vy;
+      s.vx *= 0.985;
+      s.vy *= 0.985;
+      s.life -= 0.012;
+
+      const tailX = s.x - s.vx * 12;
+      const tailY = s.y - s.vy * 12;
+      const grad = ctx.createLinearGradient(s.x, s.y, tailX, tailY);
+      grad.addColorStop(0, `rgba(255,255,255,${0.9 * s.life})`);
+      grad.addColorStop(1, "rgba(255,255,255,0)");
+      ctx.strokeStyle = grad;
+      ctx.lineWidth = 1.6;
+      ctx.beginPath();
+      ctx.moveTo(s.x, s.y);
+      ctx.lineTo(tailX, tailY);
+      ctx.stroke();
+    }
+
+    if (!reduceMotion) requestAnimationFrame(tick);
+  }
+
+  if (reduceMotion) {
+    // Static starfield (no animation)
+    resize();
+    for (const s of stars) {
+      ctx.globalAlpha = s.depth * 0.7;
+      ctx.fillStyle = s.color;
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+  } else {
+    resize();
+    requestAnimationFrame(tick);
+  }
+
+  window.addEventListener("resize", resize);
+
+  /* ---- Floating code flakes ---- */
+  const GLYPHS = ["</>", "{ }", "=>", "::", ";", "<div>", "()", "[ ]", "&&", "fn()", "if()", "0,1", "#js", "console.log()"];
+  if (flavorHost && !reduceMotion) {
+    for (let i = 0; i < 18; i++) {
+      const span = document.createElement("span");
+      span.className = "code-flake";
+      span.textContent = GLYPHS[Math.floor(Math.random() * GLYPHS.length)];
+      span.style.left = `${Math.random() * 100}%`;
+      span.style.fontSize = `${0.7 + Math.random() * 1.5}rem`;
+      span.style.setProperty("--dur", `${14 + Math.random() * 18}s`);
+      span.style.setProperty("--delay", `${-Math.random() * 30}s`);
+      span.style.setProperty("--op", `${0.12 + Math.random() * 0.25}`);
+      flavorHost.appendChild(span);
+    }
+  } else if (flavorHost && reduceMotion) {
+    for (let i = 0; i < 10; i++) {
+      const span = document.createElement("span");
+      span.className = "code-flake";
+      span.textContent = GLYPHS[i % GLYPHS.length];
+      span.style.left = `${Math.random() * 92}%`;
+      span.style.top = `${Math.random() * 90}%`;
+      span.style.animation = "none";
+      span.style.opacity = "0.22";
+      flavorHost.appendChild(span);
+    }
+  }
+})();

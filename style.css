@@ -6,7 +6,7 @@
 :root {
   --bg: #0b0b12;
   --bg-alt: #10101a;
-  --surface: rgba(255, 255, 255, 0.04);
+  --surface: rgba(255, 255, 255, 0.06);
   --surface-border: rgba(255, 255, 255, 0.09);
   --text: #e8e8f0;
   --text-muted: #9a9ab0;
@@ -25,10 +25,53 @@ html { scroll-behavior: smooth; }
 
 body {
   font-family: var(--font-sans);
-  background: var(--bg);
+  background:
+    radial-gradient(1200px 800px at 20% 5%, rgba(124, 108, 255, 0.16), transparent 60%),
+    radial-gradient(1000px 700px at 85% 25%, rgba(34, 211, 238, 0.12), transparent 60%),
+    radial-gradient(900px 900px at 55% 95%, rgba(236, 72, 153, 0.12), transparent 60%),
+    radial-gradient(700px 500px at 5% 60%, rgba(59, 130, 246, 0.1), transparent 60%),
+    linear-gradient(160deg, #050510 0%, #08061c 45%, #050510 100%);
   color: var(--text);
   line-height: 1.7;
   overflow-x: hidden;
+}
+
+/* ---------- GALAXY CANVAS (behind everything) ---------- */
+#galaxy {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ---------- FLOATING CODE FLAKES ---------- */
+.code-flakes {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.code-flake {
+  position: absolute;
+  bottom: -6%;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  color: rgba(124, 108, 255, 0.5);
+  text-shadow: 0 0 12px rgba(124, 108, 255, 0.35);
+  user-select: none;
+  pointer-events: none;
+  opacity: 0;
+  animation: codeDrift var(--dur, 20s) linear infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+@keyframes codeDrift {
+  0%   { transform: translateY(0) translateX(0) rotate(-4deg); opacity: 0; }
+  12%  { opacity: var(--op, 0.35); }
+  85%  { opacity: var(--op, 0.35); }
+  100% { transform: translateY(-115vh) translateX(18px) rotate(5deg); opacity: 0; }
 }
 
 ::selection { background: var(--accent-1); color: #fff; }
@@ -267,7 +310,10 @@ body {
 
 /* ---------- SECTIONS ---------- */
 .section { padding: 6rem 0; }
-.section--alt { background: var(--bg-alt); }
+.section--alt {
+  background: rgba(10, 10, 22, 0.6);
+  backdrop-filter: blur(2px);
+}
 
 .section__tag {
   font-family: var(--font-mono);
@@ -330,6 +376,8 @@ body {
 
 .card {
   background: var(--surface);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid var(--surface-border);
   border-radius: var(--radius);
   overflow: hidden;
@@ -422,6 +470,8 @@ body {
   padding: 1.6rem;
   border-radius: var(--radius);
   background: var(--surface);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid var(--surface-border);
 }
 

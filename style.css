@@ -341,16 +341,13 @@ body {
   width: 240px;
   height: 300px;
   border-radius: var(--radius);
+  object-fit: cover;
+  object-position: center top;
+  display: block;
   background: var(--gradient);
-  display: grid;
-  place-items: center;
-  font-family: var(--font-display);
-  font-size: 4rem;
-  font-weight: 700;
-  color: #fff;
-  box-shadow: 0 20px 50px rgba(124, 108, 255, 0.3);
+  box-shadow: 0 20px 50px rgba(124, 108, 255, 0.35);
+  border: 3px solid rgba(255, 255, 255, 0.18);
 }
-.about__photo span { text-shadow: 0 4px 20px rgba(0, 0, 0, 0.35); }
 
 .about__content p { color: var(--text-muted); margin-bottom: 1rem; }
 .about__content strong { color: var(--text); }
@@ -570,7 +567,7 @@ body {
   .nav__toggle { display: flex; }
 
   .about { grid-template-columns: 1fr; }
-  .about__photo { width: 180px; height: 220px; font-size: 3rem; }
+  .about__photo { width: 180px; height: 220px; }
   .contact { grid-template-columns: 1fr; }
   .hero__actions { justify-content: center; }
   .hero__inner { text-align: center; }
